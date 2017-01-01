@@ -1,0 +1,51 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+jar {
+	baseName = 'tourmemo'
+	version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-aop')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-redis')
+	compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1')
+	compile('mysql:mysql-connector-java:5.1.21')
+	//compile group: 'org.codehaus.xfire', name: 'xfire-all', version: '1.2.1'
+    compile files( 'libs/xfire-all-1.2.6.jar')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile group: 'org.apache.xbean', name: 'xbean-spring', version: '3.18'
+	compile group: 'org.apache.cxf', name: 'cxf-rt-frontend-jaxws', version: '3.1.7'
+	// https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-transports-http
+	compile group: 'org.apache.cxf', name: 'cxf-rt-transports-http', version: '3.1.7'
+// https://mvnrepository.com/artifact/org.apache.cxf/cxf-spring-boot-starter-jaxws
+	compile group: 'org.apache.cxf', name: 'cxf-spring-boot-starter-jaxws', version: '3.1.7'
+
+}
+/*dependencies {
+	compile('org.springframework.boot:spring-boot-starter-aop')
+	compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}*/
